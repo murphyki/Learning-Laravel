@@ -1,0 +1,10 @@
+{
+  "name": "Learning-Laravel",
+  "version": "0.0.0",
+  "authors": [
+    "Kieran Murphy <kierantmurphy@gmail.com>"
+  ],
+  "dependencies": {
+    "bootstrap-sass-official": "~3.3.5"
+  }
+}
