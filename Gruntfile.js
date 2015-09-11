@@ -34,29 +34,29 @@ module.exports = function (grunt) {
                         cwd: '<%= paths.assets.sass %>',
                         src: '**/*.scss',
                         dest: '<%= paths.css %>',
-                        ext: '.css',
+                        ext: '.css'
                     }
-                ],
-            },
+                ]
+            }
         },
 
         concat: {
             options: {
-                separator: ';',
+                separator: ';'
             },
             js_header: {
                 src: [
                     '<%= paths.assets.vendor %>modernizr/modernizr.js'
                 ],
-                dest: '<%= paths.js %>scripts_header.js',
+                dest: '<%= paths.js %>scripts_header.js'
             },
             js_footer: {
                 src: [
                     '<%= paths.assets.vendor %>jquery/dist/jquery.js',
                     '<%= paths.assets.vendor %>bootstrap-sass-official/assets/javascripts/bootstrap.js',
-                    '<%= paths.assets.js %>app.js',
+                    '<%= paths.assets.js %>app.js'
                 ],
-                dest: '<%= paths.js %>scripts_footer.js',
+                dest: '<%= paths.js %>scripts_footer.js'
             }
         },
 
@@ -76,7 +76,7 @@ module.exports = function (grunt) {
                         cwd: '<%= paths.js %>',
                         src: '**/*.js',
                         dest: '<%= paths.js %>',
-                        ext: '.min.js',
+                        ext: '.min.js'
                     }
                 ],
             }
@@ -251,9 +251,14 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-php');
 
     // Task definition
+    grunt.registerTask('default', ['eslint','test']);
+
     grunt.registerTask('build', ['clean','copy','imagemin','svgmin','concat','sass','uglify','filerev','useminPrepare','usemin']);
 
-    grunt.registerTask('serve', ['build', 'php']);
+   grunt.registerTask('serve', 'start the server and preview your app', function (target) {
 
-    grunt.registerTask('default', ['eslint','test','serve']);
+        grunt.task.run([
+            'php'
+        ]);
+    });
 };

@@ -1,0 +1,23 @@
+{
+    "rules": {
+        "quotes": 0,
+        "camelcase": 0,
+        "eol-last": 0,
+        "no-use-before-define": [0,"nofunc"],
+        "no-underscore-dangle": 0,
+        "global-strict": 0,
+        "no-mixed-spaces-and-tabs": 0,
+        "no-trailing-spaces": 2,
+        "comma-spacing": 0,
+        "key-spacing": 0,
+        "no-multi-spaces":2,
+        "no-alert": 0,
+        "no-console": 2
+    },
+    "env": {
+        "browser": true
+    },
+    "globals": {
+        "angular": true
+    }
+}
