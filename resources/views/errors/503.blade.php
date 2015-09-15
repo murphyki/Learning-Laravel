@@ -1,7 +1,7 @@
-@extends('welcome')
+@extends('app')
 
-@section('title', 'Oh Dear!')
+@section('title', 'Be right back.')
 
 @section('content')
-    <h2>Opps! 'Houston we have a problem...'</h2>
+    <h1>Be right back.</h1>
 @endsection

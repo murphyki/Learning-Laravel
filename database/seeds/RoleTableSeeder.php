@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Bican\Roles\Models\Role;
+use \Bican\Roles\Models\Role;
 
 class RoleTableSeeder extends Seeder
 {
@@ -13,11 +13,19 @@ class RoleTableSeeder extends Seeder
     public function run()
     {
         Role::truncate();
+
         Role::create([
-          'name'=>'admin',
-          'slug'=>'admin',
-          'description'=>'Administrator Role',
-          'level'=>1
+            'name' => 'Super Admin',
+            'slug' => 'super.admin',
+            'description' => 'Super Administrator Role', // optional
+            'level' => 1, // optional, set to 1 by default
+        ]);
+
+        Role::create([
+            'name' => 'Admin',
+            'slug' => 'admin',
+            'description' => 'Administrator Role', // optional
+            'level' => 1, // optional, set to 1 by default
         ]);
     }
 }

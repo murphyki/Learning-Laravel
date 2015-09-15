@@ -1,9 +1,9 @@
 @extends('app')
 
-@section('title', 'Whoopsie Daisy!')
+@section('title', 'Oopsie Daisy!')
 
 @section('content')
-    <h1>Whoopsie Daisy!</h1>
+    <h1>Oopsie Daisy!</h1>
     <div>
         <p>Looks like you took a wrong turn back there! Don't worry... it happens to the best of us.</p>
         <p>Here's a few links to get you back on track:</p>
