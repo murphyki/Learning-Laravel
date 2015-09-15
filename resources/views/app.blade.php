@@ -6,13 +6,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>test</title>
+        <title>@yield('title')</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" href="css/app.69075a7a.css">
+        <link rel="stylesheet" href="/css/app.f1fb4468.css">
 
-        <script src="js/scripts_header.d41d8cd9.js"></script>
+        <script src="/js/scripts_header.d41d8cd9.js"></script>
 
     </head>
     <body>
@@ -43,12 +43,9 @@
         </nav>
 
         <div class="container">
-          <div class="starter-template">
-            <h1>Bootstrap starter template</h1>
-            <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-          </div>
-        </div><!-- /.container -->
+          @yield('content')
+        </div>
 
-        <script src="js/scripts_footer.2bbdf0d1.js"></script>
+        <script src="/js/scripts_footer.66fbd108.js"></script>
 </body>
 </html>

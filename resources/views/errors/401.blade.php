@@ -1,6 +1,6 @@
 @extends('welcome')
 
-@section('title', 'Oh Dear!')
+@section('title', 'Whoopsie Daisy!')
 
 @section('content')
     <h2>Opps! 'Houston we have a problem...'</h2>

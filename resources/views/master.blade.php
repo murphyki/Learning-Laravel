@@ -6,16 +6,16 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>test</title>
+        <title>@yield('title')</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <!-- build:css(.) css/app.css -->
-        <link rel="stylesheet" href="css/app.css">
+        <!-- build:css(.) /css/app.css -->
+        <link rel="stylesheet" href="/css/app.css">
         <!-- endbuild -->
 
-        <!-- build:js(.) js/scripts_header.js -->
-        <script src="js/scripts_header.js"></script>
+        <!-- build:js(.) /js/scripts_header.js -->
+        <script src="/js/scripts_header.js"></script>
         <!-- endbuild -->
 
     </head>
@@ -47,14 +47,11 @@
         </nav>
 
         <div class="container">
-          <div class="starter-template">
-            <h1>Bootstrap starter template</h1>
-            <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-          </div>
-        </div><!-- /.container -->
+          @yield('content')
+        </div>
 
-        <!-- build:js(.) js/scripts_footer.js -->
-        <script src="js/scripts_footer.js"></script>
+        <!-- build:js(.) /js/scripts_footer.js -->
+        <script src="/js/scripts_footer.js"></script>
         <!-- endbuild -->
 </body>
 </html>

@@ -112,7 +112,7 @@ module.exports = function (grunt) {
           '<%= paths.css %>'
         ]
       },
-      html: ['<%= paths.views %>welcome.blade.php'],
+      html: ['<%= paths.views %>app.blade.php'],
       css: ['<%= paths.css %>{,*/}*.css']
     },
 
@@ -194,7 +194,7 @@ module.exports = function (grunt) {
           src: ['master.blade.php'],
           dest: '<%= paths.views %>',
           rename: function (dest, src) {
-            return dest + '/welcome.blade.php';
+            return dest + '/app.blade.php';
           }
         }]
       }
