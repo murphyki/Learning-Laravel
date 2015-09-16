@@ -33,6 +33,7 @@
             {!! Form::text('password_confirmation', null, ['class' => 'form-control']) !!}
         </div>
         <div class="form-group">
+            <a class="btn btn-default" href="{{ route('user.index') }}">Cancel</a>
             {!! Form::submit('Create', ['class' => 'btn btn-default']) !!}
         </div>
     {!! Form::close() !!}

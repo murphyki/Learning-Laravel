@@ -51,7 +51,7 @@ class UserController extends Controller
 
         if ($validator->fails())
         {
-            return Redirect::back()->withErrors($validator)->withInput();
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
         User::create($data);
@@ -104,12 +104,26 @@ class UserController extends Controller
 
         if ($validator->fails())
         {
-            return Redirect::back()->withErrors($validator)->withInput();
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
         $post->update($data);
 
         return redirect()->route('user.index')->with('info', 'User updated successfully');
+    }
+
+    /**
+     * Confirm removal of the specified resource in storage.
+     *
+     * @param  Request  $request
+     * @param  int  $id
+     * @return Response
+     */
+    public function confirmDelete(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        return view('user.delete', compact('user'));
     }
 
     /**
@@ -120,6 +134,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+
+        return redirect()->route('user.index')->with('info', 'User deleted successfully');
     }
 }

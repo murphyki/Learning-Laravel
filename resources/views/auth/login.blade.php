@@ -3,6 +3,7 @@
 @section('title', 'Login')
 
 @section('content')
+    <h1>Please Login</h1>
 
     <form class="form-horizontal" method="POST" action="/auth/login">
         {!! csrf_field() !!}

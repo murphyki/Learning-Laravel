@@ -15,7 +15,7 @@
         </div>
     @endif
 
-    {!! Form::model($user, ['route' => ['user.update', $user->id]]) !!}
+    {!! Form::model($user, ['method' => 'PUT', 'route' => ['user.update', $user->id]]) !!}
         <div class="form-group">
             {!! Form::label('name', 'Name:') !!}
             {!! Form::text('name', null, ['class' => 'form-control']) !!}
@@ -26,13 +26,15 @@
         </div>
         <div class="form-group">
             {!! Form::label('password', 'Password:') !!}
-            {!! Form::text('password', null, ['class' => 'form-control']) !!}
+            {!! Form::text('password', null, ['class' => 'form-control', 'value' => '']) !!}
         </div>
         <div class="form-group">
             {!! Form::label('password_confirmation', 'Confirm Password:') !!}
             {!! Form::text('password_confirmation', null, ['class' => 'form-control']) !!}
         </div>
+
         <div class="form-group">
+            <a class="btn btn-default" href="{{ route('user.index') }}">Cancel</a>
             {!! Form::submit('Update', ['class' => 'btn btn-default']) !!}
         </div>
     {!! Form::close() !!}
