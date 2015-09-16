@@ -19,7 +19,7 @@
             {!! Form::label('email', 'Email:') !!}
             {!! Form::email('email', null, ['class' => 'form-control', 'readonly' => 'true']) !!}
         </div>
-        <div class="form-group">
+        <div class="btn-group btn-group-lg">
             <a class="btn btn-default" href="{{ route('user.index') }}">Cancel</a>
             @role('super.admin')
                 {!! Form::submit('Delete', ['class' => 'btn btn-default']) !!}

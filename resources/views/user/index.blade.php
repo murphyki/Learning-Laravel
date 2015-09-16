@@ -31,7 +31,7 @@
             <th></th>
             @role('super.admin')
                 <th></th>
-                <th></th>
+                <th style="text-align: center;"><a href="{{ route('user.create') }}" title="Create New User"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></th>
             @endrole
         </thead>
         <tbody>
@@ -39,10 +39,10 @@
             <tr>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
-                <td><a href="/user/{{ $user->id }}" title="View User Details"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a></td>
+                <td style="text-align: center;"><a href="{{ route('user.show', $user->id) }}" title="View User Details"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a></td>
                 @role('super.admin')
-                    <td><a href="/user/{{ $user->id }}/edit" title="Edit User Details"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
-                    <td><a href="/user/{{ $user->id }}/delete" title="Delete User"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
+                    <td style="text-align: center;"><a href="{{ route('user.edit', $user->id) }}" title="Edit User Details"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+                    <td style="text-align: center;"><a href="{{ route('user.delete', $user->id) }}" title="Delete User"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
                 @endrole
             </tr>
         @endforeach

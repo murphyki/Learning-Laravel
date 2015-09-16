@@ -3,6 +3,12 @@ $icon-font-path: "../../../vendor/bower_components/bootstrap-sass-official/asset
 @import "../../../vendor/bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
-body {
+h1 {
   padding-top: 2em;
 }
+
+.glyphicon {
+  font-size: 16px;
+}
+
+
