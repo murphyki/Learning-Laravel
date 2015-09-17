@@ -26,11 +26,11 @@
         </div>
         <div class="form-group">
             {!! Form::label('password', 'Password:') !!}
-            {!! Form::text('password', null, ['class' => 'form-control']) !!}
+            {!! Form::password('password', ['class' => 'form-control']) !!}
         </div>
         <div class="form-group">
             {!! Form::label('password_confirmation', 'Confirm Password:') !!}
-            {!! Form::text('password_confirmation', null, ['class' => 'form-control']) !!}
+            {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
         </div>
         <div class="btn-group btn-group-lg">
             <a class="btn btn-default" href="{{ route('user.index') }}">Cancel</a>
