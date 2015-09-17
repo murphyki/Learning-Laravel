@@ -18,7 +18,8 @@ module.exports = function (grunt) {
       dist: './public/',
       css: './public/css/',
       images: './public/images/',
-      js: './public/js/'
+      js: './public/js/',
+      fonts: './public/vendor/bower_components/bootstrap-sass-official/assets/fonts/bootstrap'
     },
 
     // Task configuration
@@ -171,7 +172,8 @@ module.exports = function (grunt) {
             '.tmp',
             '<%= paths.css %>/*',
             '<%= paths.js %>/*',
-            '<%= paths.images %>/*'
+            '<%= paths.images %>/*',
+            '<%= paths.fonts %>/*'
           ]
         }]
       }
@@ -196,6 +198,14 @@ module.exports = function (grunt) {
           rename: function (dest, src) {
             return dest + '/app.blade.php';
           }
+        }]
+      },
+      fonts: {
+        files: [{
+          expand: true,
+          cwd: '<%= paths.assets.vendor %>bootstrap-sass-official/assets/fonts/bootstrap',
+          src: ['*.eot', '*.svg', '*.ttf', '*.woff', '*.woff2'],
+          dest: '<%= paths.fonts %>'
         }]
       }
     },
