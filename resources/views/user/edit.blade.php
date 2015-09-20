@@ -37,6 +37,7 @@
             <a class="btn btn-info" href="{{ route('user.index') }}">Cancel</a>
             @role('super.admin')
                 {!! Form::submit('Update', ['class' => 'btn btn-primary']) !!}
+                <a class="btn btn-danger" href="{{ route('user.delete', $user->id) }}">Delete</a>
             @endrole
         </div>
     {!! Form::close() !!}
