@@ -33,9 +33,9 @@
             {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
         </div>
         <div class="btn-group btn-group-lg">
-            <a class="btn btn-default" href="{{ route('user.index') }}">Cancel</a>
+            <a class="btn btn-info" href="{{ route('user.index') }}">Cancel</a>
             @role('super.admin')
-                {!! Form::submit('Create', ['class' => 'btn btn-default']) !!}
+                {!! Form::submit('Create', ['class' => 'btn btn-primary']) !!}
             @endrole
         </div>
     {!! Form::close() !!}

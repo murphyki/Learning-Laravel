@@ -34,9 +34,9 @@
         </div>
 
         <div class="btn-group btn-group-lg">
-            <a class="btn btn-default" href="{{ route('user.index') }}">Cancel</a>
+            <a class="btn btn-info" href="{{ route('user.index') }}">Cancel</a>
             @role('super.admin')
-                {!! Form::submit('Update', ['class' => 'btn btn-default']) !!}
+                {!! Form::submit('Update', ['class' => 'btn btn-primary']) !!}
             @endrole
         </div>
     {!! Form::close() !!}
