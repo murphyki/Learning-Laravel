@@ -61,7 +61,7 @@ class ArticleController extends Controller
      */
     public function show($slug)
     {
-        $article = Article::findOrFail($slug);
+        $article = Article::where('slug', '=', $slug)->firstOrFail();
         dd($article);
 
         return view('article.show', compact('article'));
@@ -75,7 +75,7 @@ class ArticleController extends Controller
      */
     public function edit($slug)
     {
-        $article = Article::findOrFail($slug);
+        $article = Article::where('slug', '=', $slug)->firstOrFail();
 
         return view('article.edit', compact('article'));
     }
@@ -89,7 +89,7 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $slug)
     {
-        $article = Article::findOrFail($slug);
+        $article = Article::where('slug', '=', $slug)->firstOrFail();
 
         $validator = Validator::make($data = Input::all(), Article::$rules);
 
@@ -112,7 +112,7 @@ class ArticleController extends Controller
      */
     public function confirmDelete(Request $request, $slug)
     {
-        $article = Article::findOrFail($slug);
+        $article = Article::where('slug', '=', $slug)->firstOrFail();
 
         return view('article.delete', compact('article'));
     }
@@ -125,7 +125,9 @@ class ArticleController extends Controller
      */
     public function destroy($slug)
     {
-        Article::destroy($slug);
+        $article = Article::where('slug', '=', $slug)->firstOrFail();
+
+        Article::destroy($article->id);
 
         return redirect()->route('article.index')->with('info', 'Article deleted successfully');
     }
