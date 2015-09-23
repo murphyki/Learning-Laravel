@@ -84,7 +84,7 @@ class ArticleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  Request  $request
-     * @param  int  $id
+     * @param  int  $slug
      * @return Response
      */
     public function update(Request $request, $slug)
@@ -107,7 +107,7 @@ class ArticleController extends Controller
      * Confirm removal of the specified resource in storage.
      *
      * @param  Request  $request
-     * @param  int  $id
+     * @param  int  $slug
      * @return Response
      */
     public function confirmDelete(Request $request, $slug)
@@ -120,7 +120,7 @@ class ArticleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $slug
      * @return Response
      */
     public function destroy($slug)
