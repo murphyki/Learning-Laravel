@@ -77,5 +77,6 @@
 <!-- build:js(.) /js/scripts_footer.js -->
 <script src="/js/scripts_footer.js"></script>
 <!-- endbuild -->
+@yield('additional_scripts')
 </body>
 </html>

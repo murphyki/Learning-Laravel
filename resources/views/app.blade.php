@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/css/app.b0206d13.css">
 
     <script src="/js/scripts_header.d41d8cd9.js"></script>
+    @yield('additional_scripts')
 
 </head>
 <body>

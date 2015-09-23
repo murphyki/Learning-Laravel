@@ -4,7 +4,8 @@
 
 @section('content')
     <h1>{{ $article->title }}</h1>
-    <div>{{ $article->content }}</div>
+
+    <div>{!! $article->content !!}</div>
 
     @role('super.admin')
         {!! Form::model($article) !!}
