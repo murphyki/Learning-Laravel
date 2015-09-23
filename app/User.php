@@ -19,6 +19,8 @@ class User extends Model implements AuthenticatableContract,
 {
     use Authenticatable, CanResetPassword, HasRoleAndPermission;
 
+    public $timestamps = true;
+
     /**
      * The database table used by the model.
      *
@@ -40,5 +42,12 @@ class User extends Model implements AuthenticatableContract,
      */
     protected $hidden = ['password', 'remember_token'];
 
-    public $timestamps = true;
+    /**
+     * The rules associated for the fields in this model
+    */
+    public static $rules = [
+        'name' => 'required|max:255',
+        'email' => 'required|email|max:255|unique:users',
+        'password' => 'required|confirmed|min:6'
+    ];
 }

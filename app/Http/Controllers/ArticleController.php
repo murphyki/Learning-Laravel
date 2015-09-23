@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
-//use Illuminate\Http\Request;
-
+use App\Article;
 use App\Http\Requests;
-use \App\User;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Redirect;
 use Request;
 
-class UserController extends Controller
+use Illuminate\Support\Str;
+
+class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,8 +19,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::latest()->get();
-        return view('user.index', compact('users'));
+        $articles = Article::latest()->get();
+        return view('article.index', compact('articles'));
     }
 
     /**
@@ -31,7 +30,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.create');
+        return view('article.create');
     }
 
     /**
@@ -42,42 +41,43 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($data = Input::all(), User::$rules);
+        $validator = Validator::make($data = Input::all(), Article::$rules);
 
         if ($validator->fails())
         {
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        User::create($data);
+        Article::create($data);
 
-        return redirect()->route('user.index')->with('info', 'User created successfully');
+        return redirect()->route('article.index')->with('info', 'Article created successfully');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $slug
      * @return Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $user = User::findOrFail($id);
+        $article = Article::findOrFail($slug);
+        dd($article);
 
-        return view('user.show', compact('user'));
+        return view('article.show', compact('article'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $slug
      * @return Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        $user = User::findOrFail($id);
+        $article = Article::findOrFail($slug);
 
-        return view('user.edit', compact('user'));
+        return view('article.edit', compact('article'));
     }
 
     /**
@@ -87,20 +87,20 @@ class UserController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        $user = User::findOrFail($id);
+        $article = Article::findOrFail($slug);
 
-        $validator = Validator::make($data = Input::all(), User::$rules);
+        $validator = Validator::make($data = Input::all(), Article::$rules);
 
         if ($validator->fails())
         {
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $user->update($data);
+        $article->update($data);
 
-        return redirect()->route('user.index')->with('info', 'User updated successfully');
+        return redirect()->route('article.index')->with('info', 'Article updated successfully');
     }
 
     /**
@@ -110,11 +110,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function confirmDelete(Request $request, $id)
+    public function confirmDelete(Request $request, $slug)
     {
-        $user = User::findOrFail($id);
+        $article = Article::findOrFail($slug);
 
-        return view('user.delete', compact('user'));
+        return view('article.delete', compact('article'));
     }
 
     /**
@@ -123,10 +123,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        User::destroy($id);
+        Article::destroy($slug);
 
-        return redirect()->route('user.index')->with('info', 'User deleted successfully');
+        return redirect()->route('article.index')->with('info', 'Article deleted successfully');
     }
 }

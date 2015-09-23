@@ -33,3 +33,13 @@ Route::get('/user/{user}/edit',      ['as' => 'user.edit',      'uses' =>'UserCo
 Route::put('/user/{user}',           ['as' => 'user.update',    'uses' =>'UserController@update',           'middleware' => 'role:super.admin']);
 Route::get('/user/{user}/delete',    ['as' => 'user.delete',    'uses' =>'UserController@confirmDelete',    'middleware' => 'role:super.admin']);
 Route::delete('/user/{user}',        ['as' => 'user.destroy',   'uses' =>'UserController@destroy',          'middleware' => 'role:super.admin']);
+
+// Article routes...
+Route::get('/article',                  ['as' => 'article.index',     'uses' =>'ArticleController@index',            'middleware' => 'role:admin']);
+Route::get('/article/create',           ['as' => 'article.create',    'uses' =>'ArticleController@create',           'middleware' => 'role:admin']);
+Route::post('/article',                 ['as' => 'article.store',     'uses' =>'ArticleController@store',            'middleware' => 'role:admin']);
+Route::get('/article/{slug}',           ['as' => 'article.show',      'uses' =>'ArticleController@show']);
+Route::get('/article/{slug}/edit',      ['as' => 'article.edit',      'uses' =>'ArticleController@edit',             'middleware' => 'role:admin']);
+Route::put('/article/{slug}',           ['as' => 'article.update',    'uses' =>'ArticleController@update',           'middleware' => 'role:admin']);
+Route::get('/article/{slug}/delete',    ['as' => 'article.delete',    'uses' =>'ArticleController@confirmDelete',    'middleware' => 'role:super.admin']);
+Route::delete('/article/{slug}',        ['as' => 'article.destroy',   'uses' =>'ArticleController@destroy',          'middleware' => 'role:super.admin']);
