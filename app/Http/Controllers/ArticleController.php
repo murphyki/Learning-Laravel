@@ -56,26 +56,22 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $slug
+     * @param  Article $article
      * @return Response
      */
-    public function show($slug)
+    public function show(Article $article)
     {
-        $article = Article::where('slug', '=', $slug)->firstOrFail();
-
         return view('article.show', compact('article'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $slug
+     * @param  Article $article
      * @return Response
      */
-    public function edit($slug)
+    public function edit(Article $article)
     {
-        $article = Article::where('slug', '=', $slug)->firstOrFail();
-
         return view('article.edit', compact('article'));
     }
 
@@ -83,13 +79,11 @@ class ArticleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  Request  $request
-     * @param  int  $slug
+     * @param  Article $article
      * @return Response
      */
-    public function update(Request $request, $slug)
+    public function update(Request $request, Article $article)
     {
-        $article = Article::where('slug', '=', $slug)->firstOrFail();
-
         $validator = Validator::make($data = Input::all(), Article::$rules);
 
         if ($validator->fails())
@@ -106,26 +100,22 @@ class ArticleController extends Controller
      * Confirm removal of the specified resource in storage.
      *
      * @param  Request  $request
-     * @param  int  $slug
+     * @param  Article $article
      * @return Response
      */
-    public function confirmDelete(Request $request, $slug)
+    public function confirmDelete(Request $request, Article $article)
     {
-        $article = Article::where('slug', '=', $slug)->firstOrFail();
-
         return view('article.delete', compact('article'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $slug
+     * @param  Article $article
      * @return Response
      */
-    public function destroy($slug)
+    public function destroy(Article $article)
     {
-        $article = Article::where('slug', '=', $slug)->firstOrFail();
-
         Article::destroy($article->id);
 
         return redirect()->route('articles.index')->with('info', 'Article deleted successfully');

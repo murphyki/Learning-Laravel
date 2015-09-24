@@ -14,7 +14,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="/css/app.b0206d13.css">
+    <link rel="stylesheet" href="/css/app.97419f88.css">
 
     <script src="/js/scripts_header.d41d8cd9.js"></script>
     @yield('additional_scripts')
@@ -72,5 +72,6 @@
 </div>
 
 <script src="/js/scripts_footer.66fbd108.js"></script>
+@yield('additional_scripts')
 </body>
 </html>

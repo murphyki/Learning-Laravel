@@ -21,6 +21,7 @@
     <!-- build:js(.) /js/scripts_header.js -->
     <script src="/js/scripts_header.js"></script>
     <!-- endbuild -->
+    @yield('additional_scripts')
 
 </head>
 <body>

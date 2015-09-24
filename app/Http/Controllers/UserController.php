@@ -57,26 +57,22 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  User $user
      * @return Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        $user = User::findOrFail($id);
-
         return view('user.show', compact('user'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  User $user
      * @return Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        $user = User::findOrFail($id);
-
         return view('user.edit', compact('user'));
     }
 
@@ -84,13 +80,11 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  Request  $request
-     * @param  int  $id
+     * @param  User $user
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        $user = User::findOrFail($id);
-
         $validator = Validator::make($data = Input::all(), User::$rules);
 
         if ($validator->fails())
@@ -107,25 +101,23 @@ class UserController extends Controller
      * Confirm removal of the specified resource in storage.
      *
      * @param  Request  $request
-     * @param  int  $id
+     * @param  User $user
      * @return Response
      */
-    public function confirmDelete(Request $request, $id)
+    public function confirmDelete(Request $request, User $user)
     {
-        $user = User::findOrFail($id);
-
         return view('user.delete', compact('user'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  User $user
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        User::destroy($id);
+        User::destroy($user->id);
 
         return redirect()->route('users.index')->with('info', 'User deleted successfully');
     }
