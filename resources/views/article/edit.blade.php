@@ -13,13 +13,10 @@
 
     {!! Form::model($article, ['method' => 'PUT', 'route' => ['articles.update', $article->slug]]) !!}
         @include('article.partial.form')
-
-        <div class="btn-group btn-group-lg">
-            <a class="btn btn-info" href="{{ route('articles.index') }}">Cancel</a>
-            {!! Form::submit('Update', ['class' => 'btn btn-primary']) !!}
-            @role('super.admin')
-                <a class="btn btn-danger" href="{{ route('articles.delete', $article->slug) }}">Delete</a>
-            @endrole
-        </div>
+        @include('article.partial.buttons', [
+            'submitText' => 'Update',
+            'btnClass' => 'btn-primary',
+            'slug' => $article->slug
+        ])
     {!! Form::close() !!}
 @endsection

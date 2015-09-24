@@ -13,12 +13,9 @@
 
     {!! Form::open(['route' => 'articles.store']) !!}
         @include('article.partial.form')
-
-        <div class="btn-group btn-group-lg">
-            <a class="btn btn-info" href="{{ route('articles.index') }}">Cancel</a>
-            @role('super.admin')
-                {!! Form::submit('Create', ['class' => 'btn btn-primary']) !!}
-            @endrole
-        </div>
+        @include('article.partial.buttons', [
+            'submitText' => 'Create',
+            'btnClass' => 'btn-primary'
+        ])
     {!! Form::close() !!}
 @endsection
