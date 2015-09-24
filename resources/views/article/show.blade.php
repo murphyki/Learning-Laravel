@@ -7,12 +7,14 @@
 
     <div>{!! $article->content !!}</div>
 
-    @role('super.admin')
+    @role('admin')
         {!! Form::model($article) !!}
             <div class="btn-group btn-group-lg">
-                <a class="btn btn-info" href="{{ route('article.index') }}">Cancel</a>
-                <a class="btn btn-primary" href="{{ route('article.edit', $article->slug) }}">Edit</a>
-                <a class="btn btn-danger" href="{{ route('article.delete', $article->slug) }}">Delete</a>
+                <a class="btn btn-info" href="{{ route('articles.index') }}">Cancel</a>
+                <a class="btn btn-primary" href="{{ route('articles.edit', $article->slug) }}">Edit</a>
+                @role('super.admin')
+                    <a class="btn btn-danger" href="{{ route('articles.delete', $article->slug) }}">Delete</a>
+                @endrole
             </div>
         {!! Form::close() !!}
     @endrole

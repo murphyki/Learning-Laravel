@@ -51,7 +51,7 @@ class UserController extends Controller
 
         User::create($data);
 
-        return redirect()->route('user.index')->with('info', 'User created successfully');
+        return redirect()->route('users.index')->with('info', 'User created successfully');
     }
 
     /**
@@ -100,7 +100,7 @@ class UserController extends Controller
 
         $user->update($data);
 
-        return redirect()->route('user.index')->with('info', 'User updated successfully');
+        return redirect()->route('users.index')->with('info', 'User updated successfully');
     }
 
     /**
@@ -127,6 +127,6 @@ class UserController extends Controller
     {
         User::destroy($id);
 
-        return redirect()->route('user.index')->with('info', 'User deleted successfully');
+        return redirect()->route('users.index')->with('info', 'User deleted successfully');
     }
 }

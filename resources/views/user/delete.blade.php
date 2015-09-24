@@ -6,21 +6,13 @@
     <h1>Delete User</h1>
 
     <div class="alert alert-danger">
-        <p>Are you really sure you want to delete this user?
-           Once deleted this cannot be undone...</p>
+        <p>Are you really sure you want to delete '{{ $user->email }}'?</p>
+        <p>Once deleted this cannot be undone...</p>
     </div>
 
-    {!! Form::model($user, ['method' => 'DELETE', 'route' => ['user.destroy', $user->id]]) !!}
-        <div class="form-group">
-            {!! Form::label('name', 'Name:') !!}
-            {!! Form::text('name', null, ['class' => 'form-control', 'readonly' => 'true']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('email', 'Email:') !!}
-            {!! Form::email('email', null, ['class' => 'form-control', 'readonly' => 'true']) !!}
-        </div>
+    {!! Form::model($user, ['method' => 'DELETE', 'route' => ['users.destroy', $user->id]]) !!}
         <div class="btn-group btn-group-lg">
-            <a class="btn btn-info" href="{{ route('user.index') }}">Cancel</a>
+            <a class="btn btn-info" href="{{ route('users.index') }}">Cancel</a>
             @role('super.admin')
                 {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
             @endrole

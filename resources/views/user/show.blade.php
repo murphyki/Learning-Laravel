@@ -15,10 +15,10 @@
             {!! Form::email('email', null, ['class' => 'form-control', 'readonly' => 'true']) !!}
         </div>
         <div class="btn-group btn-group-lg">
-            <a class="btn btn-info" href="{{ route('user.index') }}">Cancel</a>
+            <a class="btn btn-info" href="{{ route('users.index') }}">Cancel</a>
             @role('super.admin')
-                <a class="btn btn-primary" href="{{ route('user.edit', $user->id) }}">Edit</a>
-                <a class="btn btn-danger" href="{{ route('user.delete', $user->id) }}">Delete</a>
+                <a class="btn btn-primary" href="{{ route('users.edit', $user->id) }}">Edit</a>
+                <a class="btn btn-danger" href="{{ route('users.delete', $user->id) }}">Delete</a>
             @endrole
         </div>
     {!! Form::close() !!}

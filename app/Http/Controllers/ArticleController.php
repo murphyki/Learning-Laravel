@@ -50,7 +50,7 @@ class ArticleController extends Controller
 
         Article::create($data);
 
-        return redirect()->route('article.index')->with('info', 'Article created successfully');
+        return redirect()->route('articles.index')->with('info', 'Article created successfully');
     }
 
     /**
@@ -99,7 +99,7 @@ class ArticleController extends Controller
 
         $article->update($data);
 
-        return redirect()->route('article.index')->with('info', 'Article updated successfully');
+        return redirect()->route('articles.index')->with('info', 'Article updated successfully');
     }
 
     /**
@@ -128,6 +128,6 @@ class ArticleController extends Controller
 
         Article::destroy($article->id);
 
-        return redirect()->route('article.index')->with('info', 'Article deleted successfully');
+        return redirect()->route('articles.index')->with('info', 'Article deleted successfully');
     }
 }
