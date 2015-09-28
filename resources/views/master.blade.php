@@ -41,7 +41,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Project name</a>
+                <a class="navbar-brand" href="/">Learning Laravel</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -73,7 +73,9 @@
 </div>
 
 <div class="container">
-    @yield('content')
+    <div class="starter-template">
+        @yield('content')
+    </div>
 </div>
 
 <!-- build:js(.) /js/scripts_footer.js -->

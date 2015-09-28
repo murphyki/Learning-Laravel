@@ -11,11 +11,9 @@
     </div>
 
     {!! Form::model($user, ['method' => 'DELETE', 'route' => ['users.destroy', $user->id]]) !!}
-        <div class="btn-group btn-group-lg">
-            <a class="btn btn-info" href="{{ route('users.index') }}">Cancel</a>
-            @role('super.admin')
-                {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-            @endrole
-        </div>
+        @include('user.partial.buttons', [
+            'submitText' => 'Delete',
+            'btnClass' => 'btn-danger'
+        ])
     {!! Form::close() !!}
 @endsection

@@ -9,5 +9,9 @@
 
     {!! Form::open(['route' => 'users.store']) !!}
         @include('user.partial.form', ['submitText' => 'Create', 'id' => ''])
+        @include('user.partial.buttons', [
+            'submitText' => 'Create',
+            'btnClass' => 'btn-primary'
+        ])
     {!! Form::close() !!}
 @endsection

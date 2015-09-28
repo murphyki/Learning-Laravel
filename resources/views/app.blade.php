@@ -14,7 +14,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="/css/app.b0206d13.css">
+    <link rel="stylesheet" href="/css/app.6c7cf68b.css">
 
     <script src="/js/scripts_header.d41d8cd9.js"></script>
     @yield('additional_scripts')
@@ -37,7 +37,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Project name</a>
+                <a class="navbar-brand" href="/">Learning Laravel</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -69,7 +69,9 @@
 </div>
 
 <div class="container">
-    @yield('content')
+    <div class="starter-template">
+        @yield('content')
+    </div>
 </div>
 
 <script src="/js/scripts_footer.66fbd108.js"></script>

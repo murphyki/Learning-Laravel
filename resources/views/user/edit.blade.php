@@ -9,5 +9,10 @@
 
     {!! Form::model($user, ['method' => 'PUT', 'route' => ['users.update', $user->id]]) !!}
         @include('user.partial.form', ['submitText' => 'Update', 'id' => $user->id])
+        @include('user.partial.buttons', [
+            'submitText' => 'Update',
+            'btnClass' => 'btn-primary',
+            'id' => $user->id
+        ])
     {!! Form::close() !!}
 @endsection
