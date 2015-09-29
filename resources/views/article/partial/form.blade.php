@@ -9,3 +9,7 @@
         CKEDITOR.replace( 'content' );
     </script>
 </div>
+<div class="form-group">
+    {!! Form::label('published_at', 'Published On:') !!}
+    {!! Form::input('date', 'published_at', $publishedAt, ['class' => 'form-control']) !!}
+</div>

@@ -12,7 +12,9 @@
     @include('errors.errors')
 
     {!! Form::model($article, ['method' => 'PUT', 'route' => ['articles.update', $article->slug]]) !!}
-        @include('article.partial.form')
+        @include('article.partial.form', [
+            'publishedAt' => date('Y-m-d', strtotime($article->published_at))
+        ])
         @include('article.partial.buttons', [
             'submitText' => 'Update',
             'btnClass' => 'btn-primary',

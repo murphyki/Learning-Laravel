@@ -27,7 +27,7 @@ class Article extends Model
      *
      * @var array
      */
-    protected $fillable = ['title', 'slug', 'content'];
+    protected $fillable = ['title', 'slug', 'content', 'published_at'];
 
     /**
      * The rules associated for the fields in this model
@@ -38,16 +38,25 @@ class Article extends Model
     ];
 
     /**
-     * Ensure capitalisation of the title
+     * Ensure capitalisation of the title.
+     * Generate slug for the articleS
     */
     protected function setTitleAttribute($value)
     {
         $this->attributes['title'] = ucfirst($value);
-        $this->attributes['published_at'] = Carbon::now();
 
         if( !$this->slug)
         {
             $this->attributes['slug'] = Str::slug($value);
         }
+    }
+
+    /**
+     * Ensure published_at is in correct format
+     */
+    protected function setPublishedAtAttribute($date)
+    {
+        $this->attributes['published_at'] = Carbon::createFromFormat('Y-m-d', $date);
+
     }
 }

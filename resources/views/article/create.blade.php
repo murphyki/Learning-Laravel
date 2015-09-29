@@ -12,7 +12,9 @@
     @include('errors.errors')
 
     {!! Form::open(['route' => 'articles.store']) !!}
-        @include('article.partial.form')
+        @include('article.partial.form', [
+            'publishedAt' => date('Y-m-d')
+        ])
         @include('article.partial.buttons', [
             'submitText' => 'Create',
             'btnClass' => 'btn-primary'
