@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Article;
+use App\News;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use Request;
 
-class ArticleController extends Controller
+class NewsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::latest()->get();
-        return view('article.index', compact('articles'));
+        $allNews = News::latest()->get();
+        return view('news.index', compact('allNews'));
     }
 
     /**
@@ -28,7 +28,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('article.create');
+        return view('news.create');
     }
 
     /**
@@ -39,83 +39,83 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($data = Input::all(), Article::$rules);
+        $validator = Validator::make($data = Input::all(), News::$rules);
 
         if ($validator->fails())
         {
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        Article::create($data);
+        News::create($data);
 
-        return redirect()->route('articles.index')->with('info', 'Article created successfully');
+        return redirect()->route('news.index')->with('info', 'News article created successfully');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  Article $article
+     * @param  News $news
      * @return Response
      */
-    public function show(Article $article)
+    public function show(News $news)
     {
-        return view('article.show', compact('article'));
+        return view('news.show', compact('news'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  Article $article
+     * @param  News $news
      * @return Response
      */
-    public function edit(Article $article)
+    public function edit(News $news)
     {
-        return view('article.edit', compact('article'));
+        return view('news.edit', compact('news'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  Request  $request
-     * @param  Article $article
+     * @param  News $news
      * @return Response
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request, News $news)
     {
-        $validator = Validator::make($data = Input::all(), Article::$rules);
+        $validator = Validator::make($data = Input::all(), News::$rules);
 
         if ($validator->fails())
         {
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $article->update($data);
+        $news->update($data);
 
-        return redirect()->route('articles.index')->with('info', 'Article updated successfully');
+        return redirect()->route('news.index')->with('info', 'News article updated successfully');
     }
 
     /**
      * Confirm removal of the specified resource in storage.
      *
      * @param  Request  $request
-     * @param  Article $article
+     * @param  News $news
      * @return Response
      */
-    public function confirmDelete(Request $request, Article $article)
+    public function confirmDelete(Request $request, News $news)
     {
-        return view('article.delete', compact('article'));
+        return view('news.delete', compact('news'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Article $article
+     * @param  News $news
      * @return Response
      */
-    public function destroy(Article $article)
+    public function destroy(News $news)
     {
-        Article::destroy($article->id);
+        News::destroy($news->id);
 
-        return redirect()->route('articles.index')->with('info', 'Article deleted successfully');
+        return redirect()->route('news.index')->with('info', 'News article deleted successfully');
     }
 }

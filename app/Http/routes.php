@@ -43,3 +43,14 @@ Route::get('/article/{article}/edit',   ['as' => 'articles.edit',      'uses' =>
 Route::put('/article/{article}',        ['as' => 'articles.update',    'uses' =>'ArticleController@update',           'middleware' => 'role:admin']);
 Route::get('/article/{article}/delete', ['as' => 'articles.delete',    'uses' =>'ArticleController@confirmDelete',    'middleware' => 'role:super.admin']);
 Route::delete('/article/{article}',     ['as' => 'articles.destroy',   'uses' =>'ArticleController@destroy',          'middleware' => 'role:super.admin']);
+
+
+// News routes...
+Route::get('/news/',              ['as' => 'news.index',     'uses' =>'NewsController@index',            'middleware' => 'role:admin']);
+Route::get('/news/create',        ['as' => 'news.create',    'uses' =>'NewsController@create',           'middleware' => 'role:admin']);
+Route::post('/news',              ['as' => 'news.store',     'uses' =>'NewsController@store',            'middleware' => 'role:admin']);
+Route::get('/news/{news}',        ['as' => 'news.show',      'uses' =>'NewsController@show']);
+Route::get('/news/{news}/edit',   ['as' => 'news.edit',      'uses' =>'NewsController@edit',             'middleware' => 'role:admin']);
+Route::put('/news/{news}',        ['as' => 'news.update',    'uses' =>'NewsController@update',           'middleware' => 'role:admin']);
+Route::get('/news/{news}/delete', ['as' => 'news.delete',    'uses' =>'NewsController@confirmDelete',    'middleware' => 'role:super.admin']);
+Route::delete('/news/{news}',     ['as' => 'news.destroy',   'uses' =>'NewsController@destroy',          'middleware' => 'role:super.admin']);

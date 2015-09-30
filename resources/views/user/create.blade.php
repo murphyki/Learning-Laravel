@@ -1,9 +1,9 @@
 @extends('app')
 
-@section('title', 'Create New User')
+@section('title', 'Create User')
 
 @section('content')
-    <h1>Create New User</h1>
+    <h1>Create User</h1>
 
     @include('errors.errors')
 
