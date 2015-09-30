@@ -31,6 +31,10 @@ class RouteServiceProvider extends ServiceProvider
         $router->bind('article', function($article) {
             return \App\Article::where('slug', '=', $article)->firstOrFail();
         });
+
+        $router->bind('news', function($news) {
+            return \App\News::where('slug', '=', $news)->firstOrFail();
+        });
     }
 
     /**

@@ -58,6 +58,5 @@ class News extends Model
     protected function setPublishedAtAttribute($date)
     {
         $this->attributes['published_at'] = Carbon::createFromFormat('Y-m-d', $date);
-
     }
 }
