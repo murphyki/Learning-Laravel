@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-sm-8 news-list-item">
                 <a href="{{ route('news.show', $news->slug) }}">
-                    <h3>{{ $news->published_at->format('d-m-Y') }}&nbsp;&nbsp;{{ $news->title }}</h3>
+                    <h3>{{ $news->published_at->format('jS F Y') }}&nbsp;&nbsp;{{ $news->title }}</h3>
                     <div>
                         {!! strip_tags(str_limit($news->content, $limit=200, $end='...')) !!}
                     </div>

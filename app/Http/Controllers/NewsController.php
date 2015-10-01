@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\News;
 use App\Http\Requests;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use Request;
@@ -12,12 +13,21 @@ class NewsController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     * @param $year - defaults to null in which case all news articles will be returned
      * @return Response
      */
-    public function index()
+    public function index($year = null)
     {
-        $allNews = News::latest('published_at')->get();
+        $allNews = null;
+
+        if (is_null($year)) {
+            $allNews = News::latest('published_at')->take(100)->get();
+        } else {
+            $start = Carbon::createFromDate($year, 1, 1);// 01/01/$year
+            $end = Carbon::createFromDate($year, 12, 31);// 31/12/$year
+            $allNews = News::whereBetween('published_at', [$start, $end])->orderBy('published_at', 'desc')->get();
+        }
+
         return view('news.index', compact('allNews'));
     }
 
