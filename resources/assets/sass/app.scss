@@ -3,8 +3,21 @@ $icon-font-path: "../../../vendor/bower_components/bootstrap-sass-official/asset
 @import "../../../vendor/bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+$app_blue: #3162ce;
+$app_navy: #000088;
+
 body {
   padding-top: 50px;
+}
+
+h1 {
+  color: $app_navy;
+}
+
+hr {
+  border-color: $app_blue;
+  color: $app_blue;
+  background-color: $app_blue;
 }
 
 .starter-template {
@@ -13,6 +26,19 @@ body {
 
 .glyphicon {
   font-size: 16px;
+}
+
+.news-list-item {
+  a {
+    text-decoration: none;
+
+    h3 {
+      margin-top: 0;
+    }
+    div {
+      color: $text-color;
+    }
+  }
 }
 
 

@@ -8,6 +8,7 @@
 
 @section('content')
     <h1>Create News Article</h1>
+    <hr/>
 
     @include('errors.errors')
 

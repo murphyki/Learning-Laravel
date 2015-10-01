@@ -6,6 +6,7 @@
     <div class="row">
         <div class="col-sm-8">
             <h1>{{ $news->title }}</h1>
+            <hr/>
 
             <div>{!! $news->content !!}</div>
         </div>

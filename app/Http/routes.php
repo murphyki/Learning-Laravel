@@ -46,7 +46,7 @@ Route::delete('/article/{article}',     ['as' => 'articles.destroy',   'uses' =>
 
 
 // News routes...
-Route::get('/news/',              ['as' => 'news.index',     'uses' =>'NewsController@index',            'middleware' => 'role:admin']);
+Route::get('/news/',              ['as' => 'news.index',     'uses' =>'NewsController@index']);
 Route::get('/news/create',        ['as' => 'news.create',    'uses' =>'NewsController@create',           'middleware' => 'role:admin']);
 Route::post('/news',              ['as' => 'news.store',     'uses' =>'NewsController@store',            'middleware' => 'role:admin']);
 Route::get('/news/{news}',        ['as' => 'news.show',      'uses' =>'NewsController@show']);
