@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\News;
 use App\Http\Requests;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use Request;
@@ -18,15 +19,15 @@ class NewsController extends Controller
      */
     public function index($year = null)
     {
-        $allNews = null;
+        $start = Carbon::createFromDate(Carbon::now()->year, 1, 1);// 01/01/$year
+        $end = Carbon::createFromDate(Carbon::now()->year, 12, 31);// 31/12/$year
 
-        if (is_null($year)) {
-            $allNews = News::latest('published_at')->take(100)->get();
-        } else {
+        if (isset($year)) {
             $start = Carbon::createFromDate($year, 1, 1);// 01/01/$year
             $end = Carbon::createFromDate($year, 12, 31);// 31/12/$year
-            $allNews = News::whereBetween('published_at', [$start, $end])->orderBy('published_at', 'desc')->get();
         }
+
+        $allNews = News::whereBetween('published_at', [$start, $end])->orderBy('published_at', 'desc')->get();
 
         return view('news.index', compact('allNews'));
     }
@@ -69,7 +70,19 @@ class NewsController extends Controller
      */
     public function show(News $news)
     {
-        return view('news.show', compact('news'));
+        $now = Carbon::now();
+        $start = Carbon::createFromDate($now->year, 1, 1);// 01/01/$year
+        $end = Carbon::createFromDate($now->year, 12, 31);// 31/12/$year
+        $latest = News::whereBetween('published_at', [$start, $end])->orderBy('published_at', 'desc')->get();
+
+        $start = intval(env('APP_EPOCH'));
+        $now = intval($now->year);
+        $archives = [];
+        for ($i = $now - 1; $i >= $start; $i--) {
+            $archives[] = $i;
+        }
+
+        return view('news.show', compact('news', 'latest', 'archives'));
     }
 
     /**

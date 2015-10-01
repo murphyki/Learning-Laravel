@@ -4,6 +4,7 @@
 
 @section('content')
     <h1>Delete Article</h1>
+    <hr/>
 
     <div class="alert alert-danger">
         <p>Are you really sure you want to delete '{{ $article->title }}'?<p>

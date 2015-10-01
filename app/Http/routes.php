@@ -46,6 +46,7 @@ Route::delete('/article/{article}',     ['as' => 'articles.destroy',   'uses' =>
 
 
 // News routes...
+Route::pattern('year', '\d\d\d\d');
 Route::get('/news/{year?}',       ['as' => 'news.index',     'uses' =>'NewsController@index']);
 Route::get('/news/create',        ['as' => 'news.create',    'uses' =>'NewsController@create',           'middleware' => 'role:admin']);
 Route::post('/news',              ['as' => 'news.store',     'uses' =>'NewsController@store',            'middleware' => 'role:admin']);
